@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class Candy : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.tag == "Player")
+        {
+
+            collision.GetComponent<GameManager>().contador += 1;
+            print("Le sirvo comida al cliente");
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
